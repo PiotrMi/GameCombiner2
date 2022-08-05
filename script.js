@@ -1025,8 +1025,9 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+var bild;
 
-function getRandomGame(imgName, textName) {
+function getRandomGame(imgName, textName, firstExecution) {
 
     var randomPage = getRandomInt(100)
     console.log(randomPage)
@@ -1038,11 +1039,19 @@ function getRandomGame(imgName, textName) {
             var game = getGameFromJSON(data)
             console.log(game)
 
-
-            var img = document.createElement("img");
-            img.src = game.background_image;
-            var src = document.getElementById(imgName);
-            src.appendChild(img);
+            if (firstExecution == true) {
+                var img = document.createElement("img");
+                img.src = game.background_image;
+                var src = document.getElementById(imgName);
+                bild = src.appendChild(img);
+            }
+            else {
+                //var img = document.createElement("img");
+                //img.src = game.background_image;
+                //var src = document.getElementById(imgName);
+                bild.src = game.background_image;
+                //src.appendChild(img);
+            }
 
             document.getElementById(textName).innerHTML = game.name
         });
@@ -1058,9 +1067,17 @@ function getGameFromJSON(data) {
 }
 
 
-getRandomGame("header1", "name1")
+
 //getRandomGame("header2", "name2")
 
+getRandomGame("header1", "name1", true)
+RerollElement();
 
-var randomElement = ThemeList[Math.floor(Math.random() * ThemeList.length)];
-document.getElementById("element1").innerHTML = randomElement;
+function RerollElement() {
+    var randomElement = ThemeList[Math.floor(Math.random() * ThemeList.length)];
+    document.getElementById("element1").innerHTML = randomElement;
+}
+
+function RerollGame() {
+    getRandomGame("header1", "name1", false)
+}
