@@ -1076,6 +1076,12 @@ RerollElement();
 function RerollElement() {
     var randomElement = ThemeList[Math.floor(Math.random() * ThemeList.length)];
     document.getElementById("element1").innerHTML = randomElement;
+
+    randomElement = ThemeList[Math.floor(Math.random() * ThemeList.length)];
+    document.getElementById("element2").innerHTML = randomElement;
+
+    randomElement = ThemeList[Math.floor(Math.random() * ThemeList.length)];
+    document.getElementById("element3").innerHTML = randomElement;
 }
 
 function RerollGame() {
