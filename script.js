@@ -1060,3 +1060,7 @@ function getGameFromJSON(data) {
 
 getRandomGame("header1", "name1")
 //getRandomGame("header2", "name2")
+
+
+var randomElement = ThemeList[Math.floor(Math.random() * ThemeList.length)];
+document.getElementById("element1").innerHTML = randomElement;
